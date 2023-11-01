@@ -6,31 +6,30 @@ import './index.css'
 
 const SideBar = () => {
   return (
-    <div className="fixed top-0 left-0 h-screen w-16 flex flex-col
-                  bg-white dark:bg-gray-900 shadow-lg">
+    <div className='fixed top-0 left-0 h-screen w-16 flex flex-col
+                  bg-white dark:bg-gray-900 shadow-lg'>
                     
-        <SideBarIcon icon={<FaTeamspeak size="28" />} />
-        <Divider />
-        <SideBarIcon icon={<FaTicketAlt size="25" />} />
-        <SideBarIcon icon={<BsPeople size="25" />} />
-        <SideBarIcon icon={<BiCategoryAlt size="25" />} />
-        <Divider />
-        <SideBarIcon icon={<BiCog size="30" />} />
+        <SideBarIcon icon={<FaTeamspeak size='28' />} />
+        <hr className='sidebar-hr' />
+        <SideBarIcon icon={<FaTicketAlt size='25' />} />
+        <SideBarIcon icon={<BsPeople size='25' />} />
+        <SideBarIcon icon={<BiCategoryAlt size='25' />} />
+        <hr className='sidebar-hr' />
+        <SideBarIcon icon={<BiCog size='30' />} />
     </div>
   );
 };
 
 const SideBarIcon = ({icon}) => (
-  <div className="sidebar-icon">
+  <div className='sidebar-icon'>
     {icon}
   </div>
 );
 
-SideBarIcon.PropTypes = {
-  icon: PropTypes.children
+SideBarIcon.propTypes = {
+  icon: PropTypes.node
 }
 
-
-const Divider = () => <hr className="sidebar-hr" />;
-
 export default SideBar;
+
+

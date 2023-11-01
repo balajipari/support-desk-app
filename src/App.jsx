@@ -1,24 +1,26 @@
-import SideBar from './layouts/SideBar';
+import {RouterProvider, createBrowserRouter} from 'react-router-dom';
+import AppLayout from './AppLayout';
 import ContentContainer from './layouts/ContentContainer';
-import './App.css';
-import TopNavigation from './layouts/TopNavigation';
-import { ContentSlider } from './layouts/ContentSlider';
+import { getTickets } from './services/ticketService';
+
+const routes = createBrowserRouter([
+  {
+    path: '/home',
+    element: <AppLayout />,
+    children: [
+      {
+        path: '/home/ticket',
+        element: <ContentContainer />,
+        loader: async () => await getTickets(),
+      }
+    ]
+  }
+])
 
 function App() {
 
   return (
-    <div className="h-full overflow-hidden">
-    <SideBar />
-    <div className='ml-16'>
-      <TopNavigation title='tickets' />
-      <div className='grid grid-cols-4 gap-4' >
-        <div className="col-span-3">
-        <ContentContainer/>
-        </div>
-        <ContentSlider />
-      </div>
-    </div>
-    </div>
+    <RouterProvider router={routes} />
   )
 }
 

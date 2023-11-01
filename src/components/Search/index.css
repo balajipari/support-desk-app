@@ -4,7 +4,7 @@
   .search {
     @apply w-1/5 flex items-center justify-start 
     text-gray-500
-    px-2 h-9 ml-0 mr-0 
+    px-2 h-9 mx-1
     border-2 rounded-md
     border-gray-300;
   }

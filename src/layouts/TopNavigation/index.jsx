@@ -11,7 +11,7 @@ const TopNavigation = ({title}) => {
   return (
     <div className='top-navigation'>
       <FaHashtag size='20' className='title-hashtag' />
-      <h1 className='title-text'>{title.toUpperCase()}</h1>
+      <h1 className='title-text'>{title.toUpperCase()}S</h1>
       <BellIcon />
       <FaUserCircle size='32' className='top-navigation-icon mr-10' />
     </div>

@@ -1,30 +1,32 @@
 
 import PropTypes from 'prop-types';
+import { HiOutlineTicket } from 'react-icons/hi'
 import './index.css'
-import { Priority } from '../Priority';
-import { Badge } from '../Badge';
+import Button from '../Button';
+import Priority from '../Priority';
+import {TICKET_STATUS, TICKET_ACTION_BUTTONS} from '../../appContants'
 
-const Ticket = ({ name, timestamp, assignee = null }) => {
-
-  const seed = Math.round(Math.random() * 100);
+const Ticket = ({ name, timestamp, priority, assignee = null, status}) => {
+  const date = new Date(timestamp)
   return (
     <div className={'ticket'}>
-      <div className='avatar-wrapper'>
-        <img src={`https://avatars.dicebear.com/api/open-peeps/${seed}.svg`} alt='' className='avatar' />
-      </div>
-
-      <div className='ticket-content'>
-        <p className='ticket-title'>
-          {name}
-          <small className='timestamp'>{timestamp}</small>
-        </p>
-        <Assignee name={assignee} />
-      </div>
-      <div className='ticket-attributes'>
-        <div>
-          <Priority priority='low' />
-          <Badge name='In-Progress' badgeColor='red' />
-        </div>
+      <HiOutlineTicket size={30} color='purple' className='ml-2' />
+      <p className='ticket-title'>
+        {name}
+        <small className='timestamp'>{`${date.toLocaleDateString()} at ${date.toLocaleTimeString()}`}</small>
+      </p>
+      <div className='ticket-attributes'>        
+          <Assignee name={assignee} />
+          <Priority priority={priority?.toLowerCase()} />
+          <Button
+            disabled={status===TICKET_STATUS.OPEN}
+            label={TICKET_ACTION_BUTTONS.EDIT}
+          />
+          <Button
+            disabled={status===TICKET_STATUS.OPEN}
+            label={TICKET_ACTION_BUTTONS.RESOLVE}
+            type={'resolve'}
+          />
       </div>
     </div>
   );
@@ -33,7 +35,9 @@ const Ticket = ({ name, timestamp, assignee = null }) => {
 Ticket.propTypes = {
     name: PropTypes.string,
     timestamp: PropTypes.string,
-    assignee: PropTypes.string
+    priority: PropTypes.string,
+    assignee: PropTypes.string,
+    status: PropTypes.string,
 }
 
 const Assignee = ({name}) => {
@@ -49,6 +53,7 @@ const Assignee = ({name}) => {
 
 Assignee.propTypes = {
   name: PropTypes.string
+
 }
 
 export default Ticket;

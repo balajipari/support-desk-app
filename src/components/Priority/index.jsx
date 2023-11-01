@@ -2,7 +2,7 @@ import { PiWarning } from 'react-icons/pi'
 import PropTypes from 'prop-types';
 
 
-export const Priority = ({priority='low'}) => {
+const Priority = ({priority='low'}) => {
   let color = ''
   switch(priority) {
     case 'low':
@@ -16,7 +16,7 @@ export const Priority = ({priority='low'}) => {
       break;
   }
   return (
-    <div className='flex justify-start'>
+    <div className='flex justify-start mx-2'>
       <PiWarning size={20} className={color} />
       <span className={`ml-1 text-sm font-bold ${color}`}>{priority.toUpperCase()} </span>
     </div>
@@ -26,3 +26,5 @@ export const Priority = ({priority='low'}) => {
 Priority.propTypes = {
     priority: PropTypes.string,
 }
+
+export default Priority;

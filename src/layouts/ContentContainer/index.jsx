@@ -1,54 +1,48 @@
-import { BsPlusCircleFill } from 'react-icons/bs';
-import Ticket from '../../components/Ticket';
+import { useLoaderData, useOutletContext } from 'react-router-dom';
+import {APP_MODULES } from './../../appContants'
+
 import './index.css';
-import { Search } from '../../components/Search';
+import Button from '../../components/Button';
+import Search from '../../components/Search';
+import Ticket from '../../components/Ticket';
 
 
 const ContentContainer = () => {
+  const dataArray = useLoaderData().data;
+  const module = useOutletContext();
+
+  const renderComp = (type, data) => {
+    switch(type) {
+      case APP_MODULES.TICKET:
+        return (
+          <Ticket
+            key={data.id}
+            name={data.title}
+            timestamp={data.createdAt}
+          />
+        )
+      case APP_MODULES.CATEGORY:
+        return (
+          <Ticket
+            key={data.id}
+            name={data.title}
+            timestamp={data.createdAt}
+          />
+        )
+    }
+  }
+
   return (
     <div className='content-container'>
       <div className='m-8 flex justify-end'>
-        <Search/>
-        <button className='button-primary'>Create</button>
+        <Search placeholder={`Search ${module} using title...`} />
+        <Button label='Search' type='create'/>
       </div>
       <div className='content-list'>
-        <Ticket
-          name='laptop speaker not working'
-          timestamp='one week ago'
-          assignee={`Balaji`}
-        />
-        <Ticket name='adress change' timestamp='one week ago' />
-        <Ticket name='replace id card' timestamp='5 days ago' assignee={`Balaji`} />
-        <Ticket
-          name='access for work profile'
-          timestamp='4 days ago'
-        />
-        <Ticket
-          name='monitor request'
-          timestamp='4 days ago'
-          assignee={`Arun`}
-        />
-        <Ticket
-          name='Os change request'
-          timestamp='2 days ago'
-        />
+        {dataArray.map(data => (renderComp(module, data)))}       
       </div>
     </div>
   );
 };
-
-const BottomBar = () => (
-  <div className='bottom-bar'>
-    <PlusIcon />
-    <input type='assignee' placeholder='Enter message...' className='bottom-bar-input' />
-  </div>
-);
-
-const PlusIcon = () => (
-  <BsPlusCircleFill
-    size='22'
-    className='assignee-green-500 dark:shadow-lg mx-2 dark:assignee-primary'
-  />
-);
 
 export default ContentContainer;
