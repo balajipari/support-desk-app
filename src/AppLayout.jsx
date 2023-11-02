@@ -8,18 +8,18 @@ const AppLayout = () => {
   const location = pathSegments[pathSegments.length - 1];
   return (
     <div className='h-full overflow-hidden'>
-    <SideBar />
-    <div className='ml-16'>
-      <TopNavigation title={location} />
-      <div className='grid grid-cols-9 gap-4' >
-        <div className='col-span-6'>
-          <Outlet context={location}/>
-        </div>
-        <div className='col-span-3 border-l-2'>
-          <ContentSlider data={location} />
+      <SideBar />
+      <div className='ml-16 h-full'>
+        <TopNavigation title={location} />
+        <div className='grid grid-cols-9 gap-4 h-full'>
+          <div className='col-span-6 border-r-2'>
+            <Outlet context={location}/>
+          </div>
+          <div className='col-span-3'>
+            <ContentSlider data={location} />
+          </div>
         </div>
       </div>
-    </div>
     </div>
   )
 }

@@ -2,7 +2,7 @@
 
 @layer components {
   .search {
-    @apply w-1/5 flex items-center justify-start 
+    @apply w-3/12 flex items-center justify-start 
     text-gray-500
     px-2 h-9 mx-1
     border-2 rounded-md

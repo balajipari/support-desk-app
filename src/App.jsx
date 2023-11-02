@@ -1,17 +1,33 @@
 import {RouterProvider, createBrowserRouter} from 'react-router-dom';
 import AppLayout from './AppLayout';
 import ContentContainer from './layouts/ContentContainer';
-import { getTickets } from './services/ticketService';
+import { getTickets } from './services/ticket';
+import { getCategories } from './services/category';
 
 const routes = createBrowserRouter([
   {
-    path: '/home',
+    path: '/',
     element: <AppLayout />,
     children: [
       {
-        path: '/home/ticket',
+        path: '/ticket',
         element: <ContentContainer />,
         loader: async () => await getTickets(),
+      },
+      {
+        path: '/category',
+        element: <ContentContainer />,
+        loader: async () => await getCategories(),
+      },
+      {
+        path: '/user',
+        element: <ContentContainer />,
+        // loader: async () => await getTickets(),
+      },
+      {
+        path: '/setting',
+        element: <ContentContainer />,
+        // loader: async () => await getTickets(),
       }
     ]
   }

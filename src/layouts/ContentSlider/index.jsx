@@ -6,7 +6,7 @@ const ContentSlider = ({data}) => {
         switch(param) {
             case 'ticket':
                 return <TicketForm />;
-            case 'department':
+            case 'category':
                 return <CategoryForm />;
         }
     }

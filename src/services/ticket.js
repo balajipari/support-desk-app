@@ -1,9 +1,9 @@
 import axios from 'axios';
-import { API_URIS, API_RESPONSE } from './../appContants';
+import { API_URIS, API_RESPONSE } from '../appContants';
 
 const ticketApi = axios.create({
   baseURL: import.meta.env.VITE_API_BASE_URL,
-  headers: { 'Content-Type': 'application/Object' },
+  headers: { 'Content-Type': 'application/json' },
 });
 
 /**

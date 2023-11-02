@@ -3,14 +3,13 @@ import InputElement from './fields/InputElement';
 import SelectElement from './fields/SelectElement';
 import TextAreaElement from './fields/TextAreaElement';
 import  '../components/Button/index.css';
-import { createTicket } from './../services/ticketService'
+import { createTicket } from '../services/ticket'
+import { createCategory } from '../services/category'
 export const TicketForm = () => {
     const {register, formState: {errors}, handleSubmit} = useForm()
-    console.log(errors)
 
     const handleFormSubmit = (data) => {
         createTicket(data)
-        console.log(data)
     }
     const priorityOptions = [{value:'low', label: 'Low'}, {value:'medium', label: 'Medium'}, {value:'high', label: 'High'}]
     const categoryOptions = [{value:'1233', label: 'IT-Support'}, {value:'1342', label: 'Admin'}, {value:'3421', label: 'HR- Operations'}]
@@ -34,17 +33,18 @@ export const TicketForm = () => {
 
 export const CategoryForm = () => {
     const {register, formState: {errors}, handleSubmit} = useForm()
-    console.log(errors)
 
     const handleFormSubmit = (data) => {
-        console.log(data)
+        createCategory(data)
     }
     return (
-        <form onSubmit={handleSubmit(handleFormSubmit)}>
-            <InputElement label='Department title' placeholder='Laptop not working' fieldName='title' register={register} errors={errors} />
-            <TextAreaElement label='What they do' placeholder='Laptop keeps on restarting...' fieldName='description' register={register} errors={errors} />           
-            <button  type='submit' className='button-primary bg-green-500 hover:text-green-600 border-green-500'>Create Category</button>
-        </form>
+        <div className='flex justify-center'>
+            <form onSubmit={handleSubmit(handleFormSubmit)} className='flex flex-col w-fit justify-start'>
+                <InputElement label='Department title' placeholder='Laptop not working' fieldName='name' register={register} errors={errors} />
+                <TextAreaElement label='What they do' placeholder='Laptop keeps on restarting...' fieldName='description' register={register} errors={errors} />           
+                <button  type='submit' className='button-primary bg-green-500 hover:text-green-600 border-green-500'>Create Category</button>
+            </form>
+        </div>
     )
 
 }
