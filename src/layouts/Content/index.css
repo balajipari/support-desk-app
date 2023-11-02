@@ -11,4 +11,10 @@
     mt-0 ml-0 mx-auto px-0 pb-12 
     overflow-y-scroll;
   }
+
+  .category-list {
+    @apply flex items-center flex-wrap justify-center
+    max-w-full max-h-full h-full
+    overflow-y-scroll;
+  }
 }

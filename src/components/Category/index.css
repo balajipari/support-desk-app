@@ -2,28 +2,32 @@
 
 @layer components {
   .category {
-    @apply w-80
-    flex flex-row border-2 border-gray-400 shadow-sm items-center justify-evenly
-    py-2 px-5 m-0
+    @apply w-80 rounded
+    flex flex-row border-2 border-gray-200 
+    shadow items-center justify-evenly
+    py-2 px-5 m-2
     cursor-pointer;
   }
 
   .category-content {
     @apply w-4/5 
     flex flex-col justify-start 
-    ml-8;
+    ml-4;
   }
 
   .category-desc {
-    @apply text-lg text-left m-0 text-gray-700;
+    @apply text-lg text-left m-0
+    text-gray-700;
   }
 
   .timestamp {
-    @apply text-xs m-0 font-bold text-left text-gray-500;
+    @apply text-xs m-0 font-bold text-left
+    text-gray-500;
   }
 
   .category-name {
-    @apply text-lg text-left font-bold text-gray-700 mr-2 cursor-pointer;
+    @apply text-lg text-left font-bold 
+    text-gray-700 mr-2 cursor-pointer;
   }
 
   .avatar-wrapper {

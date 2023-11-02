@@ -9,7 +9,7 @@
   }
 
   .ticket-assignee {
-    @apply font-semibold text-sm text-left text-gray-800
+    @apply font-bold text-lg text-left text-gray-500
     mx-2 whitespace-normal;
   }
 
@@ -18,10 +18,10 @@
   }
 
   .timestamp {
-    @apply text-xs text-left font-semibold text-gray-500 ml-2;
+    @apply pl-1 text-xs text-left font-semibold text-gray-500;
   }
 
   .ticket-attributes {
-    @apply w-3/5 h-full float-right ml-auto flex flex-row justify-end items-center;
+    @apply w-2/5 h-full float-right ml-auto flex flex-row justify-end items-center;
   }
 }

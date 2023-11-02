@@ -35,3 +35,11 @@ export const TICKET_ACTION_BUTTONS = {
   EDIT: 'Edit',
   RESOLVE: 'Resolve',
 };
+
+export const REDUCER_ACTIONS = {
+  ADD_ALL: 'addAll',
+  ADD: 'add',
+  LIST_ALL: 'listAll',
+  UPDATE: 'update',
+  REMOVE: 'remove',
+};

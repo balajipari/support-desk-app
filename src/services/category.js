@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { API_URIS, API_RESPONSE } from '../appContants';
+import { API_RESPONSE, API_URIS } from '../appContants';
 
 const categoryApi = axios.create({
   baseURL: import.meta.env.VITE_API_BASE_URL,

@@ -1,9 +1,9 @@
-import PropTypes from 'prop-types'
+import PropTypes from 'prop-types';
 import './index.css';
 
-const Button = ({label, disabled, type}) => {
-  let color = ''
-  switch(type) {
+const Button = ({ label, disabled, type }) => {
+  let color = '';
+  switch (type) {
     case 'create':
       color = 'bg-green-500 hover:text-green-600 border-green-500 ';
       break;
@@ -16,20 +16,17 @@ const Button = ({label, disabled, type}) => {
     default:
       color = 'bg-gray-500 hover:text-gray-500 border-gray-500';
   }
-    return (
-        <button
-          disabled={disabled}
-          className={`button-primary ${color}`}
-        >
-          {label}
-        </button>
-    )
-}
+  return (
+    <button disabled={disabled} className={`button-primary ${color}`}>
+      {label}
+    </button>
+  );
+};
 
 Button.propTypes = {
-    label: PropTypes.string.isRequired,
-    type: PropTypes.string, 
-    disabled: PropTypes.bool
-}
+  label: PropTypes.string.isRequired,
+  type: PropTypes.string,
+  disabled: PropTypes.bool,
+};
 
 export default Button;

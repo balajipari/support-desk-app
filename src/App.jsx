@@ -1,8 +1,8 @@
-import {RouterProvider, createBrowserRouter} from 'react-router-dom';
+import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import AppLayout from './AppLayout';
-import ContentContainer from './layouts/ContentContainer';
-import { getTickets } from './services/ticket';
-import { getCategories } from './services/category';
+import Content from './layouts/Content';
+import Categories from './layouts/Content/categories';
+import Tickets from './layouts/Content/tickets';
 
 const routes = createBrowserRouter([
   {
@@ -11,33 +11,26 @@ const routes = createBrowserRouter([
     children: [
       {
         path: '/ticket',
-        element: <ContentContainer />,
-        loader: async () => await getTickets(),
+        element: <Tickets />,
       },
       {
         path: '/category',
-        element: <ContentContainer />,
-        loader: async () => await getCategories(),
+        element: <Categories />,
       },
       {
         path: '/user',
-        element: <ContentContainer />,
-        // loader: async () => await getTickets(),
+        element: <Content />,
       },
       {
         path: '/setting',
-        element: <ContentContainer />,
-        // loader: async () => await getTickets(),
-      }
-    ]
-  }
-])
+        element: <Content />,
+      },
+    ],
+  },
+]);
 
 function App() {
-
-  return (
-    <RouterProvider router={routes} />
-  )
+  return <RouterProvider router={routes} />;
 }
 
-export default App
+export default App;
