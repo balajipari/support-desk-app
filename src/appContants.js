@@ -43,3 +43,5 @@ export const REDUCER_ACTIONS = {
   UPDATE: 'update',
   REMOVE: 'remove',
 };
+
+export const YET_TO_IMPLEMENT = '❗Yet to Implement❗';

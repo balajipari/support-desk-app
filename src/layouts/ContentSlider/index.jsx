@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
-import { CategoryForm, TicketForm } from './../../forms';
+import { TicketForm, CategoryForm } from './../../forms';
+import { YET_TO_IMPLEMENT } from './../../appContants';
 
 const ContentSlider = ({ data }) => {
   const getForm = (param) => {
@@ -8,6 +9,12 @@ const ContentSlider = ({ data }) => {
         return <TicketForm />;
       case 'category':
         return <CategoryForm />;
+      default:
+        return (
+          <div className="w-full h-80 flex items-center justify-center font-bold text-2xl text-gray-500">
+            {YET_TO_IMPLEMENT}
+          </div>
+        );
     }
   };
   return (

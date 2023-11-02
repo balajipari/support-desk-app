@@ -28,7 +28,7 @@ const Categories = () => {
             <Category
               key={category.id}
               name={category.name}
-              timestamp={category.createdAt}
+              description={category.description}
             />
           ))
         ) : (

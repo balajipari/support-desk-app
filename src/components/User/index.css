@@ -1,33 +1,26 @@
 @tailwind components;
 
 @layer components {
-  .category {
+  .user {
     @apply w-80 rounded
-    flex flex-row border-2 border-gray-200 
-    shadow items-center justify-evenly
+    flex flex-row border-2 border-gray-200 shadow
+     items-center justify-evenly
     py-2 px-5 m-2
     cursor-pointer;
   }
 
-  .category-content {
+  .user-content {
     @apply w-4/5 
     flex flex-col justify-start 
     ml-4;
   }
 
-  .category-desc {
-    @apply text-xs text-left m-0
-    text-gray-600;
+  .user-text {
+    @apply text-sm text-left m-0 text-gray-600;
   }
 
-  .timestamp {
-    @apply text-xs m-0 font-bold text-left
-    text-gray-500;
-  }
-
-  .category-name {
-    @apply text-lg text-left font-bold 
-    text-gray-700 mr-2 cursor-pointer;
+  .user-name {
+    @apply text-lg text-left font-bold text-gray-700 mr-2 cursor-pointer;
   }
 
   .avatar-wrapper {
@@ -41,7 +34,7 @@
     w-12 h-full 
     rounded-full shadow-md
     object-cover bg-gray-100 
-    mb-auto mt-0 mx-0 
+    mb-auto mt-1 mx-0 
     cursor-pointer;
   }
 }

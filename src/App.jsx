@@ -1,8 +1,10 @@
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import AppLayout from './AppLayout';
-import Content from './layouts/Content';
+import { YET_TO_IMPLEMENT } from './appContants';
+import StaticContent from './assets/StaticContent';
 import Categories from './layouts/Content/categories';
 import Tickets from './layouts/Content/tickets';
+import Users from './layouts/Content/users';
 
 const routes = createBrowserRouter([
   {
@@ -19,11 +21,11 @@ const routes = createBrowserRouter([
       },
       {
         path: '/user',
-        element: <Content />,
+        element: <Users />,
       },
       {
         path: '/setting',
-        element: <Content />,
+        element: <StaticContent data={YET_TO_IMPLEMENT} />,
       },
     ],
   },

@@ -1,8 +1,7 @@
 import PropTypes from 'prop-types';
 import './index.css';
 
-const Category = ({ name, timestamp }) => {
-  const date = new Date(timestamp).toLocaleDateString();
+const Category = ({ name, description }) => {
   return (
     <div className="category">
       <div className="avatar-wrapper">
@@ -11,8 +10,7 @@ const Category = ({ name, timestamp }) => {
 
       <div className="category-content">
         <div className="category-name">{name}</div>
-        <div className="timestamp">{date}</div>
-        <div className="category-desc">{'text'}</div>
+        <div className="category-desc">{description}</div>
       </div>
     </div>
   );
@@ -20,7 +18,6 @@ const Category = ({ name, timestamp }) => {
 
 Category.propTypes = {
   name: PropTypes.string,
-  timestamp: PropTypes.string,
   description: PropTypes.string,
 };
 export default Category;
