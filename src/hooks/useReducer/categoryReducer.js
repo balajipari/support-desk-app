@@ -4,7 +4,9 @@ const categoryReducer = (state, action) => {
   let filteredData;
   switch (action.type) {
     case REDUCER_ACTIONS.ADD_ALL:
-      return action?.payload;
+      return Array.isArray(action?.payload)
+        ? action?.payload
+        : [action?.payload];
     case REDUCER_ACTIONS.ADD:
       return [...state, action?.payload];
     case REDUCER_ACTIONS.LIST_ALL:
